@@ -5,7 +5,8 @@
   "type": "module",
   "main": "src/css.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepack": "bun run build"
   },
   "keywords": [
     "vite",
@@ -35,9 +36,13 @@
     "@babel/parser": "^7.27.1",
     "@babel/traverse": "^7.27.1",
     "@rollup/pluginutils": "^5.1.4",
+    "@types/babel__traverse": "^7.20.7",
     "magic-string": "^0.30.17"
   },
   "peerDependencies": {
     "vite": ">=6.3.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
   }
 }

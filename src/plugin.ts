@@ -55,16 +55,16 @@ export default function cssStringPlugin(): Plugin {
       let collectedCss = '';
 
       babelTraverse.default(ast, {
-        ImportDeclaration(path) {
+        ImportDeclaration(path: any) {
           // Remove import { css } from './css'
           if (
             path.node.source.value.endsWith('/css') &&
-            path.node.specifiers.some((s) => s.imported?.name === 'css')
+            path.node.specifiers.some((s: any) => s.imported?.name === 'css')
           ) {
             ms.remove(path.node.start!, path.node.end!);
           }
         },
-        TaggedTemplateExpression(path) {
+        TaggedTemplateExpression(path: any) {
           // Only transform css`...`
           if (path.node.tag.name !== 'css') return;
 
@@ -80,7 +80,7 @@ export default function cssStringPlugin(): Plugin {
 
           // Extract raw CSS text
           const raw = path.node.quasi.quasis
-            .map((q) => q.value.raw)
+            .map((q: any) => q.value.raw)
             .join('${}');
           collectedCss += `.${identifier} { ${raw} }\n`;
 
