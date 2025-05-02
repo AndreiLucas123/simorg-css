@@ -1,0 +1,43 @@
+{
+  "name": "simorg-css",
+  "description": "Vite plugin to extract tagged template CSS from .tsx files into static CSS files",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/css.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "vite",
+    "plugin",
+    "css",
+    "tsx",
+    "extract",
+    "static"
+  ],
+  "files": [
+    "dist/css.js",
+    "dist/css.d.ts",
+    "dist/plugin.js",
+    "dist/plugin.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/css.js",
+      "require": "./dist/css.js"
+    },
+    "./plugin": {
+      "import": "./dist/plugin.js",
+      "require": "./dist/plugin.js"
+    }
+  },
+  "dependencies": {
+    "@babel/parser": "^7.27.1",
+    "@babel/traverse": "^7.27.1",
+    "@rollup/pluginutils": "^5.1.4",
+    "magic-string": "^0.30.17"
+  },
+  "peerDependencies": {
+    "vite": ">=6.3.4"
+  }
+}
